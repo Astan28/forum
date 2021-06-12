@@ -1,0 +1,40 @@
+.sections
+{
+width: 40%;
+padding: 10px;
+margin: auto;
+margin-top: 50px;
+border-style: solid;
+border-width: 5px;
+}
+.sections > h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section {
+    background-color: darkgray;
+    padding:5px;
+    margin:5px;
+    display: flex;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+}
+
+.section >h3 {
+    margin:auto;  
+}
+
+.btn-dark {
+    margin-left:5px;
+    margin-right: 5px;
+    height: 90%;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: inline-block;
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

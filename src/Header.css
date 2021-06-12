@@ -1,0 +1,38 @@
+.header {
+    background-color: black;
+    color: grey;
+    padding: 10px;
+    display: flex;
+}
+.header__logo {
+    margin-left: 20px;
+    width: 90%;
+}
+.header__nav {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.header__link {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.header__option {
+    margin-left: 30px;
+}
+
+.header__main {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.header__main:hover {
+    text-decoration: inherit;
+    color: inherit;
+}

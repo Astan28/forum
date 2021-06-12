@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import Header from './Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './Login';
+import Register from './Register';
+import Sections from './Sections'
+import Section from './Section'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { useState, useEffect } from 'react'
 
-function App() {
+
+
+const App = () => {
+  const [sections, setSections] = useState([])
+
+  useEffect(() => {
+    const getSections = async () => {
+      const sectionsFromServer = await fetchSections()
+      setSections(sectionsFromServer)
+    }
+
+    getSections()
+  }, [])
+
+  const fetchSections = async () => {
+    const res = await fetch('http://localhost:8080/boards')
+    const data = await res.json()
+    return data
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Route path="/" exact>
+          
+          <Sections sections={sections} />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+      </div>
+    </Router>
+
   );
 }
 

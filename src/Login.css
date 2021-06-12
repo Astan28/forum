@@ -1,0 +1,42 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.login__container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.login__container > h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.login__container > form > h5 {
+    margin-bottom: 10px;
+}
+
+.login__container > form > input {
+    width: 97%;
+    margin-bottom: 10px;
+}
+
+.login__container > form > button {
+    width: 100%;
+    border: 1px, solid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login__form {
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+
+    padding: 20px;
+}
