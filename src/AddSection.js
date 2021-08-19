@@ -10,7 +10,7 @@ function AddSection() {
                     <input type="text" className="form-control" placeholder="Podaj nazwę" name="name" />
                 </div>
 
-                <button type="submit" class="btn btn-dark">Dodaj</button>
+                <button type="submit" class="btn btn-dark">Zapisz</button>
             </form>
             </div>
   );

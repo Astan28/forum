@@ -7,34 +7,37 @@ import Sections from './Sections'
 import Section from './Section'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react'
+import { Provider } from "react-redux";
 
+import store from './redux/store'
 
 
 const App = () => {
-  const [sections, setSections] = useState([])
+  // const [sections, setSections] = useState([])
 
-  useEffect(() => {
-    const getSections = async () => {
-      const sectionsFromServer = await fetchSections()
-      setSections(sectionsFromServer)
-    }
+  // useEffect(() => {
+  //   const getSections = async () => {
+  //     const sectionsFromServer = await fetchSections()
+  //     setSections(sectionsFromServer)
+  //   }
 
-    getSections()
-  }, [])
+  //   getSections()
+  // }, [])
 
-  const fetchSections = async () => {
-    const res = await fetch('http://localhost:8080/boards')
-    const data = await res.json()
-    return data
-  }
+  // const fetchSections = async () => {
+  //   const res = await fetch('https://forum-application-1.herokuapp.com/boards')
+  //   const data = await res.json()
+  //   return data
+  // }
 
   return (
+    <Provider store={ store }>
     <Router>
       <div className="App">
         <Header />
         <Route path="/" exact>
           
-          <Sections sections={sections} />
+          <Sections sections={store.sections} />
         </Route>
         <Route path="/login">
           <Login />
@@ -44,7 +47,7 @@ const App = () => {
         </Route>
       </div>
     </Router>
-
+  </Provider>
   );
 }
 
