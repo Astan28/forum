@@ -3,6 +3,7 @@
     color: grey;
     padding: 10px;
     display: flex;
+    margin-bottom: 20px;
 }
 .header__logo {
     margin-left: 20px;

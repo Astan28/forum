@@ -1,7 +1,9 @@
 import "./Login.css"
-import {Link, useHistory } from "react-router-dom";
-import axios from 'axios'
-import React, { Component } from 'react'
+import {Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from "./redux/actions/authActions";
 
 export class Login extends Component {
     constructor(props) {
@@ -19,14 +21,12 @@ export class Login extends Component {
     
     submitHandler = e => {
         e.preventDefault()
-        console.log(this.state)
-        axios.post('http://localhost:8080/users/login', this.state)
-        .then(response => {
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        const user = {
+            name: this.state.name,
+            password: this.state.password
+        };
+
+        this.props.login(user);
     }
     render() {
         const {name, password} = this.state
@@ -55,5 +55,7 @@ export class Login extends Component {
         )
     }
 }
-
-export default Login
+Login.propTypes = {
+    login: PropTypes.func.isRequired
+}
+export default connect(null, {login})(Login)

@@ -3,11 +3,11 @@ import Header from './Header';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
-import Sections from './Sections'
-import Section from './Section'
+import Sections from './Sections';
+import Threads from './Threads';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { useState, useEffect } from 'react'
 import { Provider } from "react-redux";
+import User from "./User";
 
 import store from './redux/store'
 
@@ -44,6 +44,12 @@ const App = () => {
         </Route>
         <Route path="/register">
           <Register />
+        </Route>
+        <Route path="/user">
+          <User />
+        </Route>
+        <Route path="/boards/:id">
+          <Threads />
         </Route>
       </div>
     </Router>

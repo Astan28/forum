@@ -1,15 +1,15 @@
-import "./AddSection.css";
 import React, { Component } from 'react';
-import {createSection} from './redux/actions/sectionActions';
+import {updateSection, fetchSections} from './redux/actions/sectionActions';
 import PropTypes from 'prop-types';
 import {connect } from 'react-redux';
 
- class AddSection extends Component {
+ class EditSection extends Component {
 
   constructor(props) {
     super(props);
       this.state = {
-        name: ''
+        name: '',
+        id: this.props.id
       };
       this.onChange = this.onChange.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
@@ -26,7 +26,8 @@ import {connect } from 'react-redux';
         name: this.state.name,
       };
   
-      this.props.createSection(section);
+      this.props.updateSection(section, this.state.id);
+      this.props.fetchSections();
     }
   render() {
     return (
@@ -48,10 +49,11 @@ import {connect } from 'react-redux';
   }
 }
 
-AddSection.propTypes = {
-  createSection: PropTypes.func.isRequired
+EditSection.propTypes = {
+  updateSection: PropTypes.func.isRequired,
+  fetchSections: PropTypes.func.isRequired
 }
-export default connect(null, {createSection})(AddSection)
+export default connect(null, {updateSection, fetchSections})(EditSection)
 
 
 

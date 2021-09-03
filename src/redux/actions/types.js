@@ -1,2 +1,7 @@
 export const FETCH_SECTIONS = 'FETCH_SECTIONS';
+export const FETCH_SECTION = 'FETCH_SECTION';
 export const NEW_SECTION = 'NEW_SECTION';
+export const UPDATE_SECTION = 'UPDATE_SECTION';
+export const DELETE_SECTION = 'DELETE_SECTION';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
